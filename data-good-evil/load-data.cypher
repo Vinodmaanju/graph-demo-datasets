@@ -6,6 +6,11 @@ CREATE CONSTRAINT FOR (c:City) REQUIRE (c.cityName) IS UNIQUE;
 CREATE CONSTRAINT FOR (g:GroceryProduct) REQUIRE g.productId IS UNIQUE;
 CREATE INDEX FOR (o:Order) ON (o.transactionId);
 
+
+//Clean up data
+//MATCH (n)
+//DETACH DELETE n;
+
 //Create Customer node
 LOAD CSV WITH HEADERS FROM 'file:///coffee-shop/customer.csv' AS row
 WITH row WHERE row.customer_id = "548"
